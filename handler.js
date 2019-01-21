@@ -22,7 +22,7 @@ const tftUrl = '/magazine/tables-for-two';
 const tftArticlesRegex = /\/magazine\/\d{4}\/\d{2}\/\d{2}\/[a-zA-Z0-9-]+/ig;
 const tftRestaurantNameRegex = /"alternativeHeadline"\s*:\s*"([^"]*)"/;
 
-const snsArn = process.env.AWS_SNS_ARN || 'arn:aws:sns:us-east-1:147068813938:newyorker-tablesfortwo';
+const snsArn = process.env.AWS_SNS_ARN || '';
 
 const getRestaurantsUrl = async () => {
   const response = await fetch(`https://${tftHost}${tftUrl}`);
