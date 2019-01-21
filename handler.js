@@ -49,11 +49,25 @@ const getGooglePlaceId = async (name) => {
 };
 
 const snsRequest = (placeDetails) => {
+  let priceLevel;
+  switch (placeDetails.price_level) {
+    case 0:
+      priceLevel = 'FREE!';
+      break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      priceLevel = new Array(placeDetails.price_level + 1).join('$');
+      break;
+    default:
+      priceLevel = '??';
+  }
   const message = `Restaurant Recommendation from the New Yorker
 
 Name: ${placeDetails.name}
 Address: ${placeDetails.formatted_address}
-Price Level: ${placeDetails.price_level || '??'}
+Price Level: ${priceLevel}
 Rating: ${placeDetails.rating || '??'}
 Map: ${placeDetails.maps_url}
 New Yorker Url: ${placeDetails.new_yorker_url}
