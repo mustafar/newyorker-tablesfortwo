@@ -4,6 +4,7 @@ service: tablesfortwo-notifier
 # Use the serverless-webpack plugin to transpile ES6
 plugins:
   - serverless-webpack
+  - serverless-prune-plugin
 
 # serverless-webpack configuration
 # Enable auto-packing of external modules
@@ -18,7 +19,8 @@ provider:
   stage: prod
   region: us-east-1
   memorySize: 128
-  timeout: 30s
+  timeout: 30
+  versionFunctions: true
   environment: ${file(./env.yml):prod}
   iamRoleStatements:
     - Effect: "Allow"

@@ -27,3 +27,6 @@ prod:
 Configure serverless options in [serverless.yml](https://github.com/mustafar/tablesfortwo-notifier/blob/master/serverless.yml).
 
 Deploy using serverless: `serverless deploy`
+
+To prune old versions of the function: `serverless prune -n 1`  
+Remember to delete old zip files in S3
