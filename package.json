@@ -37,6 +37,7 @@
     "lodash": "^4.17.11",
     "node-fetch": "^2.3.0",
     "querystring": "^0.2.0",
+    "serverless-plugin-aws-alerts": "^1.2.4",
     "source-map-support": "^0.4.18"
   }
 }

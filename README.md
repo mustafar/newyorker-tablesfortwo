@@ -22,6 +22,7 @@ prod:
   APP_NAME: tablesfortwo-notifier
   GOOGLE_API_KEY: <google_api_key>
   AWS_SNS_ARN: <sns_arn>
+  AWS_SNS_ALARMS_ARN: <alarm_sns_arn>
 ```
 
 Configure serverless options in [serverless.yml](https://github.com/mustafar/tablesfortwo-notifier/blob/master/serverless.yml).
