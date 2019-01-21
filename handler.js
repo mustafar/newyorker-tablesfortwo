@@ -53,11 +53,11 @@ const snsRequest = (placeDetails) => {
 
 Name: ${placeDetails.name}
 Address: ${placeDetails.formatted_address}
-Price Level: ${placeDetails.price_level}
-Rating: ${placeDetails.rating}
+Price Level: ${placeDetails.price_level || '??'}
+Rating: ${placeDetails.rating || '??'}
 Map: ${placeDetails.maps_url}
 New Yorker Url: ${placeDetails.new_yorker_url}
-Website: ${placeDetails.website || ''}`;
+Website: ${placeDetails.website || '??'}`;
   return {
     TopicArn: snsArn,
     Subject: 'Restaurant Recommendation',
