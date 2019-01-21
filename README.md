@@ -5,8 +5,11 @@ Get restaurants featured in the New Yorker's Tables for Two section in your emai
 ## Development
 
 Install and configure [serverless](https://serverless.com/)
+
 Install the project: `npm install`
+
 Run tests: `npm test`
+
 Make sure linter's good: `npm run lint`
 
 ## Deployment
