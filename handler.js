@@ -4,8 +4,6 @@ import { get as getOrDefault, sortedUniq } from 'lodash';
 
 const AWS = require('aws-sdk');
 
-AWS.config.update({ region: process.env.AWS_REGION || 'us-east-1' });
-const sns = new AWS.SNS();
 
 const log = (json) => {
   // eslint-disable-next-line no-console
@@ -80,6 +78,10 @@ const getGooglePlaceDetails = async (placeId) => {
 
 // eslint-disable-next-line import/prefer-default-export
 export const handle = async (event, context, callback) => {
+  // init AWS
+  AWS.config.update({ region: process.env.AWS_REGION || 'us-east-1' });
+  const sns = new AWS.SNS();
+
   // grab restaurants from the tft index page
   let restaurantUrls;
   try {

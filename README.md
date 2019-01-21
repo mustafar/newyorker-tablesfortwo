@@ -1,6 +1,6 @@
 # Tables for Two Notifier 🍝 ![](https://www.newyorker.com/favicon.ico)
 
-Get restaurants featured in the New Yorker's Tables for Two section in your email. Save them in your Google Maps Saved Places using the maps link in the email.
+Get restaurants featured in the New Yorker's [Tables for Two](https://github.com/mustafar/newyorker-tablesfortwo) section in your email. Save them in your Google Maps Saved Places using the maps link in the email.
 
 ## Development
 

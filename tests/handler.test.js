@@ -2,6 +2,8 @@ import fs from 'fs';
 import nock from 'nock';
 import * as handler from '../handler';
 
+const AWS = require('aws-sdk-mock');
+
 const event = 'event';
 const context = 'context';
 
@@ -33,6 +35,14 @@ beforeEach(() => {
       fs.readFileSync('tests/fakes/google_places_details.json'),
       { 'Content-Type': 'application/json' },
     );
+
+  // mock sns
+  AWS.mock('SNS', 'publish', 'test-message');
+});
+
+afterEach(() => {
+  nock.cleanAll();
+  AWS.restore();
 });
 
 it('should work', async () => {
