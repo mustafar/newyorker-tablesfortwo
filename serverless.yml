@@ -1,0 +1,36 @@
+# NOTE: update this with your service name
+service: newyorker-tablesfortwo
+
+# Use the serverless-webpack plugin to transpile ES6
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+# serverless-webpack configuration
+# Enable auto-packing of external modules
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: us-east-1
+  memorySize: 128
+  timeout: 30s
+  environment: ${file(./env.yml):prod}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "sns:*"
+
+functions:
+  main:
+    handler: handler.handle
+    events:
+      - schedule:
+          name: newyorker-tablesfortwo-cron
+          rate: cron(0 14 ? * WED *) # 2pm Wed
